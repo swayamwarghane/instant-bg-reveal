@@ -1,7 +1,9 @@
+
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
+import { Eraser } from "lucide-react";
 
 const Index = () => {
   const { toast } = useToast();
@@ -191,24 +193,28 @@ const Index = () => {
           </div>
         )}
 
-        {/* Process button - Improved styling */}
-        <Button
+        {/* New stylish process button */}
+        <button
           onClick={processImage}
           disabled={isLoading || !originalImage}
-          className={`relative overflow-hidden font-medium text-base bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-2xl px-10 py-7 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300 transform hover:-translate-y-1 ${isLoading ? 'animate-pulse' : 'animate-pop-in'}`}
-          style={{ minWidth: '180px' }}
+          className={`relative group overflow-hidden mt-8 flex items-center justify-center gap-3 bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-700 px-8 py-4 rounded-xl font-semibold text-white shadow-lg shadow-purple-600/30 hover:shadow-purple-600/50 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed ${isLoading ? '' : 'hover:scale-105'} animate-pop-in`}
+          style={{ minWidth: '240px' }}
         >
+          <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+          <span className="absolute -inset-full top-0 block w-1/2 h-full z-5 transform -skew-x-20 bg-gradient-to-r from-transparent to-white/30 opacity-40 group-hover:animate-shine"></span>
+          
           {isLoading ? (
-            <div className="h-6 w-6 animate-spin rounded-full border-2 border-white border-t-transparent" />
-          ) : (
-            <div className="flex flex-col items-center justify-center">
-              <svg className="w-6 h-6 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 13l-3 3m0 0l-3-3m3 3V8" />
-              </svg>
-              <span>Remove Background</span>
+            <div className="flex items-center gap-3">
+              <div className="h-5 w-5 animate-spin rounded-full border-3 border-white border-t-transparent"></div>
+              <span className="text-base">Processing...</span>
             </div>
+          ) : (
+            <>
+              <Eraser className="w-5 h-5" />
+              <span className="text-base tracking-wide">REMOVE BACKGROUND</span>
+            </>
           )}
-        </Button>
+        </button>
       </div>
     </div>
   );

@@ -69,6 +69,9 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			borderWidth: {
+				'3': '3px',
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -113,6 +116,11 @@ export default {
 					from: { opacity: '0', transform: 'scale(0.5)' },
 					to: { opacity: '1', transform: 'scale(1)' },
 				},
+				'shine': {
+					from: { left: '-100%', opacity: '0' },
+					'50%': { opacity: '0.5' },
+					to: { left: '100%', opacity: '0' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -125,6 +133,7 @@ export default {
 				'shimmer': 'shimmer 1.5s infinite',
 				'spin': 'spin 1.5s linear infinite',
 				'pop-in': 'popIn 0.6s ease-out forwards',
+				'shine': 'shine 1.5s infinite',
 			}
 		}
 	},
