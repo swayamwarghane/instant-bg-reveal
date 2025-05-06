@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -192,22 +191,22 @@ const Index = () => {
           </div>
         )}
 
-        {/* Process button */}
+        {/* Process button - Improved styling */}
         <Button
           onClick={processImage}
           disabled={isLoading || !originalImage}
-          className={`relative overflow-hidden bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-full p-8 mt-4 animate-pop-in ${isLoading ? 'animate-pulse' : ''}`}
-          style={{ width: '120px', height: '120px' }}
+          className={`relative overflow-hidden font-medium text-base bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-2xl px-10 py-7 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300 transform hover:-translate-y-1 ${isLoading ? 'animate-pulse' : 'animate-pop-in'}`}
+          style={{ minWidth: '180px' }}
         >
           {isLoading ? (
             <div className="h-6 w-6 animate-spin rounded-full border-2 border-white border-t-transparent" />
           ) : (
-            <>
-              <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex flex-col items-center justify-center">
+              <svg className="w-6 h-6 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 13l-3 3m0 0l-3-3m3 3V8" />
               </svg>
-              <span className="font-medium text-sm">Remove BG</span>
-            </>
+              <span>Remove Background</span>
+            </div>
           )}
         </Button>
       </div>
