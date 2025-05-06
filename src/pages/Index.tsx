@@ -11,7 +11,7 @@ const Index = () => {
   const [processedImage, setProcessedImage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
-  const API_KEY = 'prF6qi7kzgKCoaUqBxRA2Zrg';
+  const API_KEY = 'S6phzyfpTMqfwTmgxwZ4y6Fx';
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -75,7 +75,7 @@ const Index = () => {
       const blob = await response.blob();
       const resultUrl = URL.createObjectURL(blob);
       setProcessedImage(resultUrl);
-      
+
     } catch (error) {
       console.error(error);
       toast({
@@ -92,13 +92,13 @@ const Index = () => {
     <div className="relative min-h-screen flex flex-col isolate overflow-hidden">
       {/* Background grid pattern */}
       <div className="grid-pattern fixed inset-0 z-[-1] opacity-20" />
-      
+
       {/* Gradient accent */}
       <div className="absolute top-0 -z-10 h-full w-full">
         <div className="absolute top-0 left-1/4 -z-10 h-[600px] w-[600px] rounded-full bg-purple-700/20 blur-[100px]" />
         <div className="absolute bottom-1/3 right-1/4 -z-10 h-[600px] w-[600px] rounded-full bg-indigo-700/20 blur-[100px]" />
       </div>
-      
+
       <div className="container mx-auto px-4 py-12 flex flex-col items-center z-10 h-full flex-grow">
         <header className="text-center mb-10 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-500 to-indigo-400 text-transparent bg-clip-text animate-gradient">
@@ -110,7 +110,7 @@ const Index = () => {
         </header>
 
         {/* Upload area */}
-        <div 
+        <div
           onClick={() => document.getElementById('file-input')?.click()}
           className="w-full max-w-3xl mb-8 border border-border/40 hover:border-primary/40 bg-card/30 backdrop-blur-md rounded-xl p-10 flex flex-col items-center justify-center cursor-pointer group transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 animate-float"
         >
@@ -139,16 +139,16 @@ const Index = () => {
                 <h3 className="text-xl font-semibold mb-4 text-foreground">Original Image</h3>
                 {originalImage && (
                   <div className="relative bg-black/30 rounded-lg h-[300px] flex items-center justify-center overflow-hidden">
-                    <img 
-                      src={originalImage} 
-                      alt="Original" 
+                    <img
+                      src={originalImage}
+                      alt="Original"
                       className="max-w-full max-h-full object-contain"
                     />
                   </div>
                 )}
               </div>
             </Card>
-            
+
             {/* Processed image card */}
             <Card className={`overflow-hidden border-border/40 hover:border-purple-500/40 bg-card/30 backdrop-blur-md transition-all duration-300 ${isLoading ? 'pulse-loading' : ''}`}>
               <div className="p-6">
@@ -161,9 +161,9 @@ const Index = () => {
                     </div>
                   )}
                   {processedImage && !isLoading && (
-                    <img 
-                      src={processedImage} 
-                      alt="Result" 
+                    <img
+                      src={processedImage}
+                      alt="Result"
                       className="max-w-full max-h-full object-contain animate-fade-in"
                     />
                   )}
@@ -171,11 +171,11 @@ const Index = () => {
                     <p className="text-muted-foreground text-sm">Ready to process your image</p>
                   )}
                 </div>
-                
+
                 {processedImage && (
                   <div className="mt-5 flex justify-center">
-                    <a 
-                      href={processedImage} 
+                    <a
+                      href={processedImage}
                       download="background-removed.png"
                       className="animate-pulse-slow"
                     >
@@ -202,7 +202,7 @@ const Index = () => {
         >
           <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           <span className="absolute -inset-full top-0 block w-1/2 h-full z-5 transform -skew-x-20 bg-gradient-to-r from-transparent to-white/30 opacity-40 group-hover:animate-shine"></span>
-          
+
           {isLoading ? (
             <div className="flex items-center gap-3">
               <div className="h-5 w-5 animate-spin rounded-full border-3 border-white border-t-transparent"></div>
