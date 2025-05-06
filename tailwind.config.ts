@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -84,11 +85,46 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				'gradient': {
+					'0%, 100%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'fadeIn': {
+					from: { opacity: '0', transform: 'translateY(20px)' },
+					to: { opacity: '1', transform: 'translateY(0)' },
+				},
+				'pulse': {
+					'0%, 100%': { transform: 'scale(1)', opacity: '1' },
+					'50%': { transform: 'scale(1.05)', opacity: '0.9' },
+				},
+				'shimmer': {
+					'100%': { transform: 'translateX(200%)' },
+				},
+				'spin': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' },
+				},
+				'popIn': {
+					from: { opacity: '0', transform: 'scale(0.5)' },
+					to: { opacity: '1', transform: 'scale(1)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'gradient': 'gradient 6s linear infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'fade-in': 'fadeIn 0.8s ease-out forwards',
+				'pulse': 'pulse 3s infinite',
+				'pulse-slow': 'pulse 3s infinite',
+				'shimmer': 'shimmer 1.5s infinite',
+				'spin': 'spin 1.5s linear infinite',
+				'pop-in': 'popIn 0.6s ease-out forwards',
 			}
 		}
 	},
